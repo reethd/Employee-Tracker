@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "mysql2": "^2.2.5",
+    "inquirer": "^8.2.4"
+  },
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "allows viewing and updating of employee database",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm start",
+    "test": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reethd/Employee-Tracker.git"
+  },
+  "keywords": [
+    "employee-tracker"
+  ],
+  "author": "reeth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reethd/Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/reethd/Employee-Tracker#readme"
+}
