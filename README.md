@@ -12,6 +12,8 @@
 - [License](#license)
 - [Contact](#contact)
 
+![Screenshot (2)](https://user-images.githubusercontent.com/115037176/214922338-c712ff54-aa19-41b5-9a64-41fd0f833b9b.png)
+
 ## Description
 
 This app establishes an interactive database for a user to view and update a series of employees, their roles, and departments. It uses nodejs for the front end and depends on the inquirer, mysql2, and console.table packages.
