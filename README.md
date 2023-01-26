@@ -20,11 +20,11 @@ This app establishes an interactive database for a user to view and update a ser
 
 ## Installation
 
-In order for this application to function properly, make sure that you have nodejs and mysql properly installed. Then, navigate to the directory that you have cloned this repository into and log into mysql by entering <mysql -u root -p>. Once logged in, enter <source ./db/schema.sql> and <source ./db/seeds.sql>. These will eestablish the initial database. You can then enter <npm i> to install all dependencies and run the application by entering <npm start>.
+In order for this application to function properly, make sure that you have nodejs and mysql properly installed. Then, navigate to the directory that you have cloned this repository into and log into mysql by entering 'mysql -u root -p>' Once logged in, enter 'source ./db/schema.sql' and 'source ./db/seeds.sql'. These will eestablish the initial database. You can then enter 'npm i' to install all dependencies and run the application by entering 'npm start'.
 
 ## Usage
 
-After running the <npm start> command, the user will choose what to do from a provided list of actions. Simply follow the prompts on screen and the application will update the database for you. To exit the application, choose the "Quit" option from the main menu or type <ctrl + c>.
+After running the 'npm start' command, the user will choose what to do from a provided list of actions. Simply follow the prompts on screen and the application will update the database for you. To exit the application, choose the "Quit" option from the main menu or type 'ctrl + c'.
 
 Demonstration video link:https://drive.google.com/file/d/1OHINla-ig6P9NWSmS7-TOM3mjwfsS7lq/view
 
