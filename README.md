@@ -26,7 +26,6 @@ In order for this application to function properly, make sure that you have node
 
 After running the 'npm start' command, the user will choose what to do from a provided list of actions. Simply follow the prompts on screen and the application will update the database for you. To exit the application, choose the "Quit" option from the main menu or type 'ctrl + c'.
 
-<iframe src="https://drive.google.com/file/d/1OHINla-ig6P9NWSmS7-TOM3mjwfsS7lq/preview" width="640" height="480"></iframe>
 Demonstration video link: https://drive.google.com/file/d/1OHINla-ig6P9NWSmS7-TOM3mjwfsS7lq/view
 
 ## Contributing
