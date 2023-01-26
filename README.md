@@ -14,7 +14,7 @@
 
 ## Description
 
-This app establishes an interactive database for a user to view and update a series of employees, their roles, and departments. It uses nodejs for the front end and depends on the inquirer, mysql2, and inquirer packages.
+This app establishes an interactive database for a user to view and update a series of employees, their roles, and departments. It uses nodejs for the front end and depends on the inquirer, mysql2, and console.table packages.
 
 ## Installation
 
@@ -23,6 +23,8 @@ In order for this application to function properly, make sure that you have node
 ## Usage
 
 After running the <npm start> command, the user will choose what to do from a provided list of actions. Simply follow the prompts on screen and the application will update the database for you. To exit the application, choose the "Quit" option from the main menu or type <ctrl + c>.
+
+Demonstration video link:https://drive.google.com/file/d/1OHINla-ig6P9NWSmS7-TOM3mjwfsS7lq/view
 
 ## Contributing
 
