@@ -9,7 +9,7 @@
   "description": "allows viewing and updating of employee database",
   "main": "index.js",
   "scripts": {
-    "start": "npm start",
+    "start": "node index",
     "test": "nodemon index"
   },
   "repository": {
