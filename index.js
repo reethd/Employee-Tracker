@@ -1,7 +1,9 @@
+// Assign dependencies to variables
 const inquirer = require("inquirer");
 const mysql = require("mysql2");
 const cTable = require("console.table");
 
+// Assign a local sql connection to a variable
 const connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
@@ -10,6 +12,7 @@ const connection = mysql.createConnection({
   database: "employee_tracker_db",
 });
 
+// Establish connection and on success, display application title and run the initial user prompt
 connection.connect(function (err) {
   if (err) {
     throw err;
@@ -26,6 +29,7 @@ connection.connect(function (err) {
   menuPrompt();
 });
 
+// Assign the initial menu options list to a variable
 const menu = [
   {
     type: "list",
@@ -45,6 +49,7 @@ const menu = [
   },
 ];
 
+// Assign the prompt for naming a department to a variable
 const addDept = [
   {
     type: "input",
@@ -53,6 +58,8 @@ const addDept = [
   },
 ];
 
+// Runs the menu list and allows the user to select an option, navigating them to the next
+// desired function in the program by using the menuSwitch function
 function menuPrompt() {
   inquirer
     .prompt(menu)
@@ -62,6 +69,9 @@ function menuPrompt() {
     .catch((error) => console.log(error));
 }
 
+// Handles the user selection from the initial menu and runs the associated function, where 
+// each case is an option from the menu
+// Upon choosing quit, the program terminates
 function menuSwitch(answers) {
   switch (answers) {
     case "View all departments":
@@ -99,6 +109,8 @@ function menuSwitch(answers) {
   }
 }
 
+// References all data from the established department table and displays it in the
+// terminal before taking the user back to the initial menu prompt
 function viewAllDepartments() {
   connection.query(
     "SELECT department.id AS ID, department_name AS Department FROM department",
@@ -106,27 +118,35 @@ function viewAllDepartments() {
       if (err) {
         console.log(err);
       } else {
-        console.table("Departments: \n", res);
+        console.table("Departments:", res);
       }
       menuPrompt();
     }
   );
 }
 
+// References all data from the established role table, and pulls the department_name associated
+// with each role's department_id before displaying the table and taking the user back to the 
+// initial menu prompt
 function viewAllRoles() {
   connection.query(
-    "SELECT role.id AS ID, title AS Title, department.department_name AS Department, salary AS Salary FROM role LEFT JOIN department on role.department_id = department.id",
+    "SELECT role.id AS ID, title AS Title, department.department_name AS Department, salary AS Salary FROM role LEFT JOIN department ON role.department_id = department.id",
     function (err, res) {
       if (err) {
         console.log(err);
       } else {
-        console.table("Employee Roles: \n", res);
+        console.table("Employee Roles:", res);
       }
       menuPrompt();
     }
   );
 }
 
+// References all data from the established employee table. The department_name is pulled from
+// the department.id associated with the department_id from the role table. The role is pulled from
+// the role.id associated with the employee's role_id. The manager's manager.id references an
+// employee with a matching manager_id. Then displays this table and returns the user to the initial
+// menu prompt.
 function viewAllEmployees() {
   connection.query(
     'SELECT employee.id AS ID, employee.first_name AS "First Name", employee.last_name AS "Last Name", department.department_name AS Department, role.title AS "Role", role.salary AS Salary, CONCAT(manager.first_name, " ", manager.last_name) AS Manager FROM employee LEFT JOIN role ON employee.role_id = role.id LEFT JOIN department ON role.department_id = department.id LEFT JOIN employee AS manager ON manager.id = employee.manager_id;',
@@ -134,13 +154,15 @@ function viewAllEmployees() {
       if (err) {
         console.log(err);
       } else {
-        console.table("Employees: \n", res);
+        console.table("Employees:", res);
       }
       menuPrompt();
     }
   );
 }
 
+// Prompts the user for a department name and then inserts that input into the department table
+// as the department_name for a new entry before returning the user to the initial menu
 function addDepartment() {
   inquirer
     .prompt([
@@ -165,6 +187,9 @@ function addDepartment() {
     });
 }
 
+// Prompts the user for title and salary of a new role and assigns them. Also provides
+// a list of departments, from which when one is chosen, reads that department's id and 
+// assigns it to the new role's department_id. Then returns user to the initial menu
 function addRole() {
   connection.query("SELECT * FROM department", function (err, res) {
     if (err) throw err;
@@ -209,6 +234,12 @@ function addRole() {
   });
 }
 
+
+// Prompts the user for a new employee's first_name and last_name and assigns them. 
+// Also provides a list of predefined roles, as well as a list of employee's with no
+// manger_id to simulate a list of managers to chose from. The names in these lists are
+// read as their associated ID's, which are then assigned to the role_id and manager_id
+// of the new employee respectively. Then the user is returned to the initial menu.
 function addEmployee() {
   connection.query("SELECT * FROM role", function (err, res) {
     if (err) throw err;
@@ -275,6 +306,10 @@ function addEmployee() {
   });
 }
 
+// Prompts the user to select an employee from a list of all existing employees and the 
+// role that they are to be reassigned to from a list of all existing roles. The selected
+// employee's role_id is then reassigned to the ID associated with the chosen role. User is
+// then returned to the intial menu prompt.
 function updateEmployee() {
   connection.query(
     "SELECT * FROM employee RIGHT JOIN role on employee.role_id=role.id",

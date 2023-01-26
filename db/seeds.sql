@@ -1,5 +1,7 @@
+-- Accesses the employee_tracker_db database
 USE employee_tracker_db;
 
+-- Assigns values to department_name in the department table
 INSERT INTO department (department_name)
 VALUES 
 ("Sales"),
@@ -7,7 +9,7 @@ VALUES
 ("Finance"),
 ("Legal");
 
-
+-- Assigns values to title, salary, and department_id in the role table
 INSERT INTO role (title, salary, department_id)
 VALUES 
 ("Sales Lead", 100000, 1),
@@ -19,7 +21,8 @@ VALUES
 ("Legal Team Lead", 250000, 4),
 ("Lawyer", 190000, 4);
 
-
+-- Assigns values to first_name, last_name, role_id, and manager_id in the employee table
+-- Employees with a manager_id of null are a manager themselves
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES 
 ("John", "Doe", 1, null),
