@@ -20,7 +20,7 @@ This app establishes an interactive database for a user to view and update a ser
 
 ## Installation
 
-In order for this application to function properly, make sure that you have nodejs and mysql properly installed. Then, navigate to the directory that you have cloned this repository into and log into mysql by entering 'mysql -u root -p>' Once logged in, enter 'source ./db/schema.sql' and 'source ./db/seeds.sql'. These will eestablish the initial database. You can then enter 'npm i' to install all dependencies and run the application by entering 'npm start'.
+In order for this application to function properly, make sure that you have nodejs and mysql properly installed. Then, navigate to the directory that you have cloned this repository into and log into mysql by entering 'mysql -u root -p' Once logged in, enter 'source ./db/schema.sql' and 'source ./db/seeds.sql'. These will establish the initial database. You can then enter 'npm i' to install all dependencies and run the application by entering 'npm start'.
 
 ## Usage
 
@@ -30,7 +30,7 @@ Demonstration video link:https://drive.google.com/file/d/1OHINla-ig6P9NWSmS7-TOM
 
 ## Contributing
 
-Contact me through github with any contributions that ayou may have.
+Contact me through github with any contributions that you may have.
 
 ## Tests
 
